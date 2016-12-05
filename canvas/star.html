@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Rectangle</title>
+	<style>
+		#canvas {
+			position: relative;
+			top: 50px;
+			left: 50%;
+			transform: translateX(-50%);
+			border: 1px solid #ccc;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="canvas">
+		您的浏览器不支持，请您更换浏览器。
+	</canvas>
+
+
+	<script>
+
+		let[x=y,y=1] = [1,null];
+		console.log(x, y);
+		window.onload = function () {
+			var canvas = document.getElementById('canvas');
+			canvas.width = 800;
+			canvas.height = 500;
+			var context = canvas.getContext("2d");
+			var rotate = 0;
+			var r = 100;
+			var R = 200;
+			var x = 200;
+			var y = 200;
+			var fill_color;
+			/*
+			var bChange = true;
+			setInterval ( function() {
+				if (bChange) {
+					drawStar(context, 200, 100, 350, 250, "green", 5, "red");
+					bChange = false;
+				} else {
+					drawStar(context, 100, 200, 350, 250, "green", 5, "red");
+					bChange = true;
+				}
+			},200);
+			*/
+			setInterval ( function() {
+				rotate += 10;
+				r = r * Math.random() + 50;
+				R = R * Math.random() - 100;
+				x = x * Math.random()+200;
+				y = y * Math.random()+100;
+				fill_color = ["red", "yellow", "green", "blue"][Math.floor(4*Math.random())];
+				drawStar(context, r, R, x, y, rotate, "green", 5, fill_color);
+			}, 160);
+
+		}
+
+		function drawStar(cxt, r, R, x, y, rotate, line_color, line_width, fill_color) {
+			cxt.clearRect(0, 0, 800, 500);
+
+			cxt.beginPath();
+			for (var i = 0; i < 5; i++) {
+				cxt.lineTo(
+					Math.cos((18 + i * 72 - rotate) / 180 * Math.PI) * R + x,
+					-Math.sin((18 + i * 72 - rotate) / 180 * Math.PI) * R + y
+				);
+				cxt.lineTo(
+					Math.cos((54 + i * 72 - rotate) / 180 * Math.PI) * r + x,
+					-Math.sin((54 + i * 72 - rotate) / 180 * Math.PI) * r + y
+				);
+			}
+			cxt.closePath();
+
+			cxt.lineWidth = line_width;
+			cxt.lineStyle = line_color;
+			cxt.stroke();
+			cxt.fillStyle = fill_color; 
+			cxt.fill();
+		}
+
+		/*function drawStar(cxt, r, R, x, y, line_color, line_width, fill_color) {
+			cxt.clearRect(0, 0, 800, 500);
+
+			cxt.beginPath();
+			for (var i = 0; i < 5; i++) {
+				cxt.lineTo(
+					Math.cos((18 + i * 72) / 180 * Math.PI) * R + x,
+					-Math.sin((18 + i * 72) / 180 * Math.PI) * R + y
+				);
+				cxt.lineTo(
+					Math.cos((54 + i * 72) / 180 * Math.PI) * r + x,
+					-Math.sin((54 + i * 72) / 180 * Math.PI) * r + y
+				);
+			}
+			cxt.closePath();
+
+			cxt.lineWidth = line_width;
+			cxt.lineStyle = line_color;
+			cxt.stroke();
+			cxt.fillStyle = fill_color; 
+			cxt.fill();
+		}*/
+
+	</script>
+</body>
+</html>

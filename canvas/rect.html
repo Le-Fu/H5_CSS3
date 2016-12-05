@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Rectangle</title>
+	<style>
+		#canvas {
+			position: relative;
+			top: 50px;
+			left: 50%;
+			transform: translateX(-50%);
+			border: 1px solid #ccc;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="canvas">
+		您的浏览器不支持，请您更换浏览器。
+	</canvas>
+
+
+	<script>
+		window.onload = function () {
+			var canvas = document.getElementById('canvas');
+			canvas.width = 800;
+			canvas.height = 500;
+			var context = canvas.getContext("2d");
+
+			function drawRectangle(x, y, width, height, line_width, line_color, fill_color) {
+				context.beginPath();
+				context.rect(x, y, width, height);
+				context.closePath();
+
+				context.width = line_width;
+				context.lineStyle = line_color;
+				context.fillStyle = fill_color;
+
+				context.stroke();
+				context.fill();
+			}
+
+			drawRectangle(0, 0, 100, 100, 5, "#00ff00", "#f00");
+			drawRectangle(50, 50, 100, 100, 5, "#00ff00", "#00f");
+		}
+	</script>
+</body>
+</html>

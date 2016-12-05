@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>arc</title>
+</head>
+<body>
+	<canvas id="canvas" style="border: 1px solid #eee; background-color: #ccc; margin: 50px auto">
+		Your browser is not support canvas, please change your browser.
+	</canvas>
+
+
+	<script>
+		var canvas = document.getElementById('canvas');
+		canvas.width = 500;
+		canvas.height = 500;
+		var cxt = canvas.getContext("2d");
+
+		cxt.lineWidth = 5;
+		cxt.strokeStyle = "blue";
+		cxt.arc(200, 200, 100, 1*Math.PI, 1.5*Math.PI, true);
+		cxt.stroke();
+
+
+
+
+	</script>	
+</body>
+</html>
