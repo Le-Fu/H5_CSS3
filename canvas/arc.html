@@ -9,9 +9,11 @@
 		Your browser is not support canvas, please change your browser.
 	</canvas>
 
+	<input type="radio" name="sex" value="nan">男
+	<input type="radio" name="sex" value="nv">女
 
 	<script>
-		var canvas = document.getElementById('canvas');
+		/*var canvas = document.getElementById('canvas');
 		canvas.width = 500;
 		canvas.height = 500;
 		var cxt = canvas.getContext("2d");
@@ -19,8 +21,15 @@
 		cxt.lineWidth = 5;
 		cxt.strokeStyle = "blue";
 		cxt.arc(200, 200, 100, 1*Math.PI, 1.5*Math.PI, true);
-		cxt.stroke();
-
+		cxt.stroke();*/
+		var aRadio = document.getElementsByName('sex');
+		for (var i = 0; i < aRadio.length; i++) {
+			(function(i){
+				aRadio[i].onclick = function () {
+					alert(this.value);
+				}
+			})(i);
+		}
 
 
 
