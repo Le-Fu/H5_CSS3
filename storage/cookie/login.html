@@ -17,21 +17,21 @@
     <script src="cookie.js"></script>
 
     <script>
-        if (Cookie.getCookie('username') && Cookie.getCookie('psd')) {
-            window.location = 'index.html';
-        }
+    if (Cookie.getCookie('username') && Cookie.getCookie('psd')) {
+        window.location = 'index.html';
+    }
 
-        var oBtn = document.getElementById('login');
-        var loginHold = document.getElementById('loginHold');
-        oBtn.onclick = function () {
-            var oName = document.getElementById('username').value;
-            var oPsd = document.getElementById('password').value;
-            if (loginHold.checked)  {
-                Cookie.setCookie('name', oName, 5);
-                Cookie.setCookie('psd', oPsd, 5);
-            }
+    var oBtn = document.getElementById('login');
+    var loginHold = document.getElementById('loginHold');
+    oBtn.onclick = function () {
+        var oName = document.getElementById('username').value;
+        var oPsd = document.getElementById('password').value;
+        if (loginHold.checked)  {
+            Cookie.setCookie('name', oName, 5);
+            Cookie.setCookie('psd', oPsd, 5);
         }
-    </script>
+    }
+</script>
 </body>
 
 </html>
