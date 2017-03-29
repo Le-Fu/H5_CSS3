@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>慕课网-拖拽实现</title>
+<style type="text/css">
+
+    #draggable{ width: 100px;height: 100px; position: absolute;top: 100px;left: 100px;border: 1px solid #ccc;background: #eee;padding: 10px;cursor: default;}
+
+</style>
+</head>
+<body>
+
+<div id="draggable">拖我</div>
+
+<script type="text/javascript">
+    var oDrag = document.getElementById('draggable');
+    var isDraging = false;
+    var startX = 0;
+    var startY = 0;
+    oDrag.addEventListener('mousedown',function(e){
+        //鼠标事件1 - 在标题栏按下（要计算鼠标相对拖拽元素的左上角的坐标 ，并且标记元素为可拖动） 
+        isDraging  = true; 
+        inX = e.clientX;
+        inY = e.clientY;
+        outX = oDrag.offsetLeft;
+        outY = oDrag.offsetHeight;
+        startX = inX-outX;
+        startY = inY-outY;
+        
+    })
+    document.onmouseup = function(e){
+        //鼠标事件3 - 鼠标松开的时候（标记元素为不可拖动）
+        isDraging  = false; 
+       
+    }
+    document.onmousemove = function(e) {
+        //鼠标事件2 - 鼠标移动时（要检测，元素是否标记为移动）
+        document.title = e.clientY +':'+ e.clientX;
+        if(isDraging){
+            oDrag.style.left = e.clientX-startX + 'px';
+            oDrag.style.top = e.clientY-startY + 'px';     
+        }
+    };
+</script>
+</body>
+</html>

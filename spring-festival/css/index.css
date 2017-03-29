@@ -1,0 +1,33 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+/* music */
+#music {
+	position: absolute;
+	right: 10%;
+	top: 10%;
+	width: 100px;
+	height: 100px;
+	border: 2px solid #000;	
+	border-radius: 50%;
+	background: url(../img/music_disc.png) no-repeat center center;
+}
+
+
+	
+.page1 {
+	background: url(../img/fbg.jpg) no-repeat;
+	background-size: 100%;
+
+}
+
+.page2 {
+	background: url(../img/nbg.png) no-repeat;
+	background-size: 100%;
+}
+.page3 {
+	background: url(../img/nbg.png) no-repeat;
+	background-size: 100%;
+}

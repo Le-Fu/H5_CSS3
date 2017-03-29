@@ -4,10 +4,21 @@
 	<meta charset="UTF-8">
 	<title>flex-direction</title>
 	<style>
-		 
+		.box {
+
+			background-color: red;
+			display: flex;
+		}	 
+		.inline-box {
+
+			background-color: blue;
+			display: inline-flex;
+		}
 	</style>
 </head>
 <body>
-	
+	<!-- 设置flex布局以后，子元素的float、clear和vertical-align属相将失效。 -->
+	<div class="box">sdjkaf;s</div>
+	<div class="inline-box">dsfkajsld</div>
 </body>
 </html>
