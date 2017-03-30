@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>grid</title>
+	<style>
+		.grid {
+			display: flex;
+		}
+		.grid-cell {
+			flex: 1;
+			background-color: #eee;
+			text-align: center;
+			margin: 5px;
+		}
+		.grid-cell.g-1of4 {
+			flex:0 0 25%;
+		}
+		.grid-cell.g-1of3 {
+			flex:0 0 33.3%;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="grid">
+		<div class="grid-cell g-1of4">1/4</div>
+		<div class="grid-cell">auto</div>
+		<div class="grid-cell g-1of3">1/3</div>
+	</div>
+</body>
+</html>

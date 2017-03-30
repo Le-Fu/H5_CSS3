@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Holy Grail Layout</title>
+	<style>
+		.holygrail {
+			display: flex;
+			min-height: 100vh;
+			flex-direction: column;
+			text-align: center;
+		}
+		header, footer {
+			flex: 1;
+			background-color: #eee;
+		}
+		.holygrail-body {
+			display: flex;
+			flex: 1;
+
+		}
+		.holygrail-content {
+			flex: 1;
+			background-color: #0f0;
+
+		}
+		.holygrail-nav, .holygrail-aside {
+			flex: 0 0 12em;
+			background-color: #f00;
+
+		}
+		.holygrail-nav {
+			order: -1;
+		}
+
+		@media (max-width: 768px) {
+			.holygrail-body {
+				flex-direction: column;
+				flex: 1;
+			}
+			.holygrail-nav,
+			.holygrail-aside,
+			.holygrail-content {
+				float: auto;
+			}
+		}
+	</style>
+</head>
+<body class="holygrail">
+	<header>header</header>
+	<div class="holygrail-body">
+		<nav class="holygrail-nav">nav</nav>
+		<main class="holygrail-content">content</main>
+		<aside class="holygrail-aside">aside</aside>
+	</div>
+	<footer>footer</footer>
+</body>
+</html>

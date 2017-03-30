@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>properties in flexbox</title>
+	<style>
+		.container {
+			width: 60%;
+			margin: 0 auto;
+		}
+		img {
+			width: 100%;
+		}
+		code {
+			background-color: pink;
+			margin: 5px;
+			padding: 3px;
+			border-radius: 5px;
+		}
+	</style>
+</head>
+<body>
+<div class="container">
+	<ul>
+		<li>flex-direction</li>
+		<li>flex-wrap</li>
+		<li>flex-flow</li>
+		<li>justify-content</li>
+		<li>align-items</li>
+		<li>align-content</li>
+	</ul>
+<h3>flex-direction</h3>
+<p><code>flex-direction</code>属性决定主轴方向（即items的排列方向）。</p>
+<pre>
+	.box {
+		flex-direction: row | row-reverse | column | column-reverse;
+	}
+</pre>
+<img src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015071005.png" alt="">
+
+<h3>flex-wrap</h3>
+<p>默认情况下，项目都排在一条线（又称"轴线"）上。flex-wrap属性定义，如果一条轴线排不下，如何换行。</p>
+<img src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015071006.png" alt="">
+<pre>
+	.box {
+		flex-wrap: nowrap | wrap | wrap-reverse;
+	}
+</pre>
+	<h5>nowrap: 不换行</h5>
+	<img src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015071007.png" alt="">
+	<h5>wrap: 换行，第一行在上方</h5>
+	<img src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015071008.jpg" alt="">
+	<h5>wrap: 换行，第一行在下方</h5>
+	<img src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015071009.jpg" alt="">
+
+<h3>flex-flow</h3>
+<p><code>flex-flow</code>属性是<code>flex-direction</code>属性和<code>flex-wrap</code>属性的简写形式，默认值为<code>row nowrap</code>。</p>
+<pre>
+	.box {
+		flex-flow: < flex-direction > || < felx-wrap >;
+	}
+</pre>
+
+<h3>justify-content</h3>
+<p><code>justify-content</code>属性定义了项目在主轴上的对齐方式。</p>
+<pre>
+	.box {
+		justify-content: flex-start | flex-end | center | space-between | space-around;
+	}
+</pre>
+<img src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015071010.png" alt="">
+
+<h3>align-items</h3>
+<p><code>align-items</code>属性定义项目在交叉轴上如何对齐。</p>
+<pre>
+	.box {
+		align-items: flex-start | flex-end | center | baseline | stretch;
+	}
+</pre>
+<img src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015071011.png" alt="">
+
+<h3>align-content</h3>
+<p><code>align-content</code>属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。</p>
+<pre>
+	.box {
+		align-content: flex-start | flex-end | center | space-between | space-around | stretch;
+	}
+</pre>
+<img src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015071012.png" alt="">
+
+<ul><li>order</li>
+<li>flex-grow</li>
+<li>flex-shrink</li>
+<li>flex-basis</li>
+<li>flex</li>
+<li>align-self</li></ul>
+
+<h3>order</h3>
+<p><code>order</code>属性定义项目的排列顺序。数值越小，排列越靠前，默认为0。</p>
+<pre>
+	.item {
+		order: < integer >;
+	}
+</pre>
+<img src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015071013.png" alt="">
+
+<h3>flex-grow</h3>
+<p><code>flex-grow</code>属性定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大。</p>
+<pre>
+	.item {
+		flex-grow: < number >; //default 0
+	}
+</pre>
+<img src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015071014.png" alt="">
+<p>如果所有项目的<code>flex-grow</code>属性都为1，则它们将等分剩余空间（如果有的话）。如果一个项目的<code>flex-grow</code>属性为2，其他项目都为1，则前者占据的剩余空间将比其他项多一倍。</p>
+
+<h3>flex-shrink</h3>
+<p><code>flex-shrink</code>属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。</p>
+<pre>
+	.item {
+		flex-shrink: < number >; // default 1
+	}
+</pre>
+<img src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015071015.jpg" alt="">
+
+<p>如果所有项目的<code>flex-shrink</code>属性都为1，当空间不足时，都将等比例缩小。如果一个项目的<code>flex-shrink</code>属性为0，其他项目都为1，则空间不足时，前者不缩小。
+<strong>负值对该属性无效</strong></p>
+
+<h3>flex-basis</h3>
+<p><code>flex-basis</code>属性定义了在分配多余空间之前，项目占据的主轴空间（main size）。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小。</p>
+<pre>
+	.item {
+		flex-basis: < length > | auto ; // default auto
+	}
+</pre>
+<p>它可以设为跟width或height属性一样的值（比如350px），则项目将占据固定空间。</p>
+
+<h3>flex</h3>
+<p><code>flex</code>属性是<code>flex-grow</code>,  <code>flex-shrink</code>	 和 flex-basis的简写，默认值为0 1 auto。后两个属性可选。</p>
+<pre>
+	.item {
+		flex: none | [<'flex-grow'> <'flex-shrink'>? || <'flex-basis'>]
+	}
+</pre>
+<p>该属性有两个快捷值：auto (1 1 auto) 和 none (0 0 auto)。</p>
+<p>建议优先使用这个属性，而不是单独写三个分离的属性，因为浏览器会推算相关值。</p>
+
+<h3>align-self</h3>
+<p>	align-self属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。</p>
+<pre>
+	.item {
+		align-self: auto | flex-start | flex-end | center | baseline | stretch;
+	}
+</pre>
+<img src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015071016.png" alt="">
+<p>该属性可能取6个值，除了auto，其他都与align-items属性完全一致。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+</body>
+</html>
